@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Your Luck</title>
+    <style>
+        .card {
+            width: 100px;
+            height: 150px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 150px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Enter a number">
+    <button onclick="number()">Submit</button>
+    <div class="card" onclick="checkLuck()">Click Me!</div>
+
+    <script>
+        let userNum;
+
+        function number() {
+            userNum = document.getElementById('input').value;
+            if (!userNum) {
+                alert('Please enter a number first.');
+                return;
+            }
+            alert('Now click the card to check your luck');
+        }
+
+        function checkLuck() {
+            if (!userNum) {
+                alert('You need to enter a number first!');
+                return;
+            }
+            const luckyNumber = Math.floor(Math.random() * 10) + 1;
+            if (userNum == luckyNumber) {
+                alert(`Congratulations! Your lucky number ${userNum} matches.`);
+            } else {
+                alert(`Try again! The lucky number was ${luckyNumber}.`);
+            }
+        }
+    </script>
+</body>
+</html>
