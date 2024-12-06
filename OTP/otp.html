@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="otp"></p>
+    <input type="text" name="" id="input">
+    <button onclick="submit()">submit</button>
+
+    <script>
+         function otp() {
+            OTPValue = Math.floor(Math.random()*10000);
+            document.getElementById('otp').innerText = OTPValue;
+            setInterval(otp,9000);
+         }
+       otp();
+        function submit() {
+            var input = document.getElementById('input').value;
+            if (input == OTPValue) {
+                alert("lets GO")
+            }
+            else{
+                alert ("oops!")
+            }
+            
+        }
+
+       
+
+    </script>
+</body>
+
+</html>
