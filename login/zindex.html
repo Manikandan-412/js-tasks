@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            position: relative;
+        }
+
+        /* .sub2 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        } */
+        .sub2:hover {
+            filter: blur(1px);
+            /* z-index: -1; */
+        }
+
+        .sub1:hover {
+            filter: drop-shadow(3px 3px 3px black);
+            filter: grayscale();
+        }
+
+        span {
+
+            color: red;
+            font-size: 40px;
+        }
+
+        /* p::first-letter{
+           
+            color: red;
+            font-size: 40px;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <p><span>H</span>ello Coaders!</p>
+    <p>Hello coders!</p>
+    <div class="main">
+        <img class="sub1" src="https://picsum.photos/id/237/200" alt="">
+        <img class="sub2" src="https://picsum.photos/id/238/200" alt="">
+    </div>
+</body>
+
+</html>

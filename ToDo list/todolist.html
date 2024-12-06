@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>To Do List</title>
+    <style>
+        .completed {
+            color: rgb(151, 151, 151);
+            text-decoration: line-through;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bucket List</h1>
+    <input type="text" id="add" value="" placeholder="Add your bucket list here...">
+    <button onclick="add()">Add</button>
+    <ol class="list" id="list">
+    </ol>
+    <script>
+        function add() {
+            var task = document.getElementById('add').value;
+            if (task.trim() === "") {
+                alert("Please enter a valid task!");
+                return;
+            }
+            var list = document.getElementById('list');
+            var listItem = document.createElement('li');
+            listItem.textContent = task;
+            list.appendChild(listItem);
+            listItem.addEventListener('click', function () {
+                listItem.classList.toggle('completed');
+            });
+            list.appendChild(listItem);
+            document.getElementById('add').value = "";
+        }
+    </script>
+</body>
+
+</html>

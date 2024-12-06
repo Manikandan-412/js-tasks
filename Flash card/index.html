@@ -1,49 +1,73 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Your Luck</title>
     <style>
         .card {
-            width: 100px;
-            height: 150px;
-            border: 1px solid #000;
-            text-align: center;
-            line-height: 150px;
+            width: fit-content;
+            height: fit-content;
+            border: none;
+            border-radius: 5px;
+            padding: 30px;
             cursor: pointer;
+            background-color: #c5c5c5;
+            margin: 30px;
+        }
+
+        * {
+            font-family: poppins;
         }
     </style>
 </head>
+
 <body>
+
+    <h2>Rules</h2>
+    <ol>
+        <li>Enter a number in input area</li>
+        <li>click the box</li>
+        <li>your result is here!</ li>
+    </ol>
+    <div class="card" onclick="checkLuck()">
+        <p id="card">Click me!</p>
+    </div>
+
     <input type="text" id="input" placeholder="Enter a number">
+
     <button onclick="number()">Submit</button>
-    <div class="card" onclick="checkLuck()">Click Me!</div>
+    <p id="result">...</p>
 
     <script>
         let userNum;
-
         function number() {
             userNum = document.getElementById('input').value;
             if (!userNum) {
                 alert('Please enter a number first.');
                 return;
             }
-            alert('Now click the card to check your luck');
         }
-
         function checkLuck() {
             if (!userNum) {
                 alert('You need to enter a number first!');
                 return;
             }
             const luckyNumber = Math.floor(Math.random() * 10) + 1;
+            card = document.getElementById('card').innerHTML = luckyNumber;
+
             if (userNum == luckyNumber) {
-                alert(`Congratulations! Your lucky number ${userNum} matches.`);
+                document.getElementById('result').innerHTML = `<marquee> Congratulations! You going to be good position one day . </marquee>`;
+                document.getElementById('result').style.color = "Green";
             } else {
-                alert(`Try again! The lucky number was ${luckyNumber}.`);
+                document.getElementById('result').textContent = "OOPS!";
+                document.getElementById('result').style.color = "red";
+
             }
         }
     </script>
 </body>
+
 </html>

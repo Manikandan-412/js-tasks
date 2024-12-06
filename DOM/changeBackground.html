@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    <h1>hello </h1>
+<button id="btn" class="btn"> change background</button>
+<button id="btn1" class="btn"> Reset</button>
+<script>
+   let element = document.getElementById('btn');
+
+    element.addEventListener('click' ,(event)=> {
+            document.body.style.backgroundColor = "red";
+    });
+
+    let element1 = document.getElementById('btn1');
+
+    element1.addEventListener('click' ,(event)=> {
+            document.body.style.backgroundColor = null;
+    });
+
+</script>
+</body>
+</html>

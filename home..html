@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        .drag-item {
+            width: 100px;
+            height: 100px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            margin: 10px;
+            border-radius: 10px;
+            cursor: grab;
+        }
+
+        .drop-zone {
+            width: 300px;
+            height: 300px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .drop-zone.over {
+            border-color: #4CAF50;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag and Drop Example</h1>
+    <div class="drag-item" draggable="true" id="item1">Drag Me</div>
+
+    <div class="drop-zone" id="dropZone">
+        Drop Here
+    </div>
+
+    <script>
+        // Get references to the drag item and the drop zone
+        const dragItem = document.getElementById('item1');
+        const dropZone = document.getElementById('dropZone');
+
+        // Add event listeners to handle drag events
+        dragItem.addEventListener('dragstart', function (e) {
+            e.dataTransfer.setData('text/plain', e.target.id); // Set the data being transferred
+            e.target.style.opacity = "0.5"; // Optional: Add visual feedback
+        });
+
+        dragItem.addEventListener('dragend', function (e) {
+            e.target.style.opacity = "1"; // Reset opacity after drag ends
+        });
+
+        // Prevent the default behavior to allow drop
+        dropZone.addEventListener('dragover', function (e) {
+            e.preventDefault();
+            e.target.classList.add('over'); // Add a visual cue
+        });
+
+        dropZone.addEventListener('dragleave', function (e) {
+            e.target.classList.remove('over'); // Remove the visual cue
+        });
+
+        // Handle the drop event
+        dropZone.addEventListener('drop', function (e) {
+            e.preventDefault();
+            e.target.classList.remove('over'); // Remove the visual cue
+
+            const id = e.dataTransfer.getData('text/plain'); // Get the ID of the dragged element
+            const draggedElement = document.getElementById(id);
+
+            e.target.appendChild(draggedElement); // Move the dragged element to the drop zone
+        });
+    </script>
+</body>
+</html>
