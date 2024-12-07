@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            height: fit-content;
+            width: fit-content;
+            border: none;
+            background-color: blueviolet;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content" id="sj">
+        <h1>irukkuma! irukkatha?</h1>
+    </div>
+
+    <script>
+        let element = document.getElementById('sj');
+
+        element.addEventListener('mouseover', (event) => {
+            element.innerHTML = "<h1>irukku!</h1>";
+        });
+
+        element.addEventListener('mouseleave', (event) => {
+            element.innerHTML = "<h1>Ana illa ;(</h1>";
+        });
+    </script>
+</body>
+
+</html>
